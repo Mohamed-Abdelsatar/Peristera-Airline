@@ -1,0 +1,88 @@
+models:
+    Passenger:
+        id: false
+        PassportNo: integer primary nullable
+        Fname: string nullable
+        Lname: string nullable
+        DoB: date nullable
+        Gender: char nullable
+        Pstreet: string nullable
+        Pcity: string nullable
+        CC_Cvv: integer index comment:"FK"
+        PP_UserName: integer index comment:"FK"
+    PassengerEmail:
+        id: false
+        PassportNoEmail: integer primary nullable
+        Email: string nullable
+    PassengerPhoneNo:
+        id: false
+        PassportNoPhone: integer primary nullable
+        PhoneNo: integer nullable
+    Paypal:
+        id: false
+        UserName: string primary nullable
+    CREDITCARD:
+        id: false
+        Cvv: integer primary nullable
+        ExpirationDate: date nullable
+        CreditCardID: integer nullable
+    Ticket:
+        id: false
+        TicketId: integer primary nullable
+        Class: string nullable
+        tDate: date nullable
+        SeatNo: integer nullable
+        paymenteMethod: string nullable
+        PassportNoTicket: integer index nullable comment:"FK"
+        FflightNo: integer index comment:"FK"
+    Flight:
+        id: false
+        FlightNo: integer primary nullable
+        Fdate: date nullable
+        DSNO: integer index comment:"FK"
+    EMPLOYEE:
+        id: false
+        Eid: integer primary nullable
+        Salary: integer nullable
+        Egender: string nullable
+        JobType: string nullable
+        Estreet: string nullable
+        Ecity: string nullable
+        EFname: string nullable
+        ELname: string nullable
+        Age: integer nullable
+    EphoneNo:
+        id: false
+        EmpID: integer primary nullable
+        EphoneNo_: integer nullable
+    EmpFlight:
+        id: false
+        ZaFlightNo: integer primary nullable comment:"FK"
+        ZaEmpID: integer nullable comment:"FK"
+    Plane:
+        id: false
+        PlaneNo: integer primary nullable
+        PlaneType: string nullable
+        Vip: integer nullable
+        Business: integer nullable
+        Economy: integer nullable
+    PlaneFlight:
+        id: false
+        FlightNum: integer nullable comment:"FK"
+        PlaneNum: integer primary nullable comment:"FK"
+    DESTINATION:
+        id: false
+        DesNo: integer primary nullable
+        DepartureCity: string nullable
+        ArrivalCity: string nullable
+        DepartureTime: time nullable
+        ArrivalTime: time nullable
+        Za_transit_id: integer index comment:"FK"
+    TRANSIT:
+        id: false
+        transit_id: integer primary nullable
+        NoOfStations: integer nullable
+    TRANSITSTATION:
+        id: false
+        TtransitId: integer primary nullable
+        stationName: string nullable
